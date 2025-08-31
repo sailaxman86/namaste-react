@@ -1,0 +1,184 @@
+Git Hub Issue to push to the origin initially main branch
+
+1. Learn how many ways we start using react js library in your exisiting apps using CDN, downloading the library, etc.
+2. React DOM vs React CDN links
+
+
+3. NPM not installed on the machine
+
+   a) set the path for NPM - echo 'export PATH="/path/to/npm/bin:$PATH"' >> ~/.zshrc
+   b) Install dependencies npm install -D parcel
+     -- -D -- dev dependencies and normal dependency
+     //parcel is a bundler web pack to bundle all your dependencies
+  c) package.json vs package-lock.json
+  d) package.json - configuration of npm and tracks the version of npm dependencies
+     -- Have approximate version parcel: "^2.8.3"
+  e) package-lock.json - Locks the version of the npm depdendency keeps track it for the latest version.
+     -- exact version of parcel: "2.8.3"
+     --Location of the package dependencies
+     --required depdencies of that package.
+   f) after npm parce install, there is a folder installed called node_modules
+     -- node_modules -- Contains all the code to get from NPM 
+     -- Transitive dependencies installed in the node_modules
+   g) create file called .gitignore (which don't want push to production or github which has huge files in the node_modules)
+      -- .gitignore file
+         -- put the folder path like "/node_modules"
+    h) Important to always put package.json and package.lock.json in your github repository.
+
+
+4) Igniting the react app
+   a) npx parcel index.html
+      -- Will spin up the server up and run the application by creating the server and host at http:localhost:1234
+   b) Another way to bring react into our existing app is using NPM
+
+   CDN is not a good way to bring react because it has to connect with network call and install dependcies will tate long time and not a best way.
+
+   c) npm install react (if don't mention version, will install the latest version)
+      npm install react-DOM
+
+      run like npx parcel index.html
+      run - nothing works
+      how to use that react inside new index.html
+
+    d) in your previous project, use import in the js file 
+       import React from "react";
+       import ReactDom from "react-dom/client";
+
+      // Not a normal javascript, it is a module whre browser understands it differently.
+       <script type="module" src="/App.js">
+       <script>
+       App.js has the react JS code.
+
+       with this it is no more using the CDN version but now using the installed react package.
+   e) Parcel - 
+      1. created a dev build and local server
+      2. save changes, automatically refreshes (HMR) on your pages - Hot module Replacement
+      3. The changes are happened using File Watching Algorith  - written in C++
+         Read during algorithm class - how to track file changes and reflect.
+
+      4. Parcel also used caching - for faster builds, where this is cached, it will cached
+         into a new folder called .parcel-cache (see inside this folder)
+      5. Image Optimization
+      6. For Production Build - Bundling and minification things for you.
+      7. Compress the files
+      8. Also used consistent Hashing
+      9. Code Splitting
+      10. Differential Bundling
+      11. Diagostic
+      12. Error handling
+      13. Host app on https (SSL)
+      14. Lazy dev builds
+      15. Tree Shaking Algorith
+          -- remove unused function and code for you
+          -- compress and minify to optimized
+
+      16. Workers
+      17. Lazy mode 
+      18. Different bundle for dev/Production
+
+*****Important - Read Parcel Documentation **********
+
+    f) create production build
+      -- npx parcel build index.html
+        parcel will give error to remove your app.js which you created in package.json
+      - Create a dist folder - which generates files required for production to deploy
+        dist folder has production build files
+
+.parcel-cache, dist, node_modules are temporary folders and can be regenerated, these things don't have to put it in git because these can be regenerated
+
+   g) To support the applications for different browser versions
+       use the browserslist in the package.json
+       -- write like "Last 5 chrome version" or "last 2 version"
+         - support older versions of chrome
+      - If you put specific browser, the bundle size can also be reduced for the builds.
+      -- for country specific in US, use query composition of the browserslist package.
+ 
+ ** when interview asks how your react app works fast, you should be able to explain using above points *****
+
+
+Episode 3 - Laying the foundation
+
+1) Tips to start a project
+   -- Write a scripts inside the package.json instead of writing the command again and again to run the application
+   Add scripts section in package.json
+   "scripts" : {
+      "start" : "parcel index.html",
+      "build: "parcel build index.html".
+      "test" : "jest"
+   }
+
+   After this instead of using command like "npx parcel index.html" use below
+    "npm run start" equivalent to "npm start"
+     -- it will uses the script uses parcel index.html
+   For build prod, use "npm run build"  equivalent to "npm build"
+
+2) JSX - Javascript extention helped to created react elements.
+   -- Used to help build react elements in optimized and easy way to understands
+      and is like a best practice. 
+   -- Help to use Html + Javascript together in one file.
+   -- Create H1 tag inside JSX
+      const jsxHeading = <h1 id="heading"> Namasthe React using JSX </h1> - JSX
+      const heading = React.createElement("h1",  {id: "heading"}, "Namasthe React using React"} - React
+   -- Myth - JSX - like HTML inside Javascript -(IT IS Not correct)
+      JSX - HTML like or xml like syntax can be combined to use javascript
+      JSX, HTML, Javscript, React everything is different -- remember
+
+    
+    -- JSX -> Babel Transpiled(to React.CreateElement) -> JS Engine -> Object -> Browser to render that HTML
+       Happening through Parcel using babel. (Babel's - Javascript compiler - job is transpiling our code)
+       Babel is convert JSX to React Elements ->
+   -- JSX attributes uses camel case like tabIndex, className, imageUrl etc. explore various attributes.
+   -- wrap inside parentesis for multi lines use braces ()
+   -- Prettier - vscode extension
+   -- ES lint
+   -- Braket pair colorization
+
+3) React Components - Everything is a component in a react which renders as HTML in browser
+  a) Class Based Components -- Old way of writing code (Legacy projects)
+  b) Function Based Components -- new way of writing code.
+     
+React Functional Component - is like a normal javascript functions which returns some JSX.   
+  Example: const HeadingComponent = () => {
+   <Title /> - Another component
+   return <h1> Namasthe React functional Component </h1>
+  }
+  is same as
+  const HeadingComponent = () => <h1> Namasthe React functional Component </h1>;
+
+
+A function which is returning a react element (via JSX here) is a functional component.
+ 
+-- Rendering a react functiona component like below
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent />); -- Rendering 2 components here Title, Heading Component
+
+-- Super power of JSX, if use curly braces like {} - can write javascript along with the HTML like below
+const number = 10000;
+const HeadingComponent = () => {
+   <Title /> - Another component
+   <Title></Title> - another way to call component
+   {title} - Another way instead of using <Title /> component using const name
+   {Title()} - use the title as calling function in javascript
+   { number }
+   return <h1> Namasthe React functional Component </h1>
+  }
+
+-- JSX sanitizes data and takes care of cross site scripting from attacks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
