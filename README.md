@@ -27,7 +27,40 @@ like super powerful variable
         -- Read the react fiber architecture in the github - It is react core algorithm
         -- Incremental rendering
     c. React is using efficient DOM manipulation via Virtual DOM
-    
+
   
+Episode6 - Monolisth vs Microservices Architecture - outside of the react
+ Monolith
+    -- Huge big project where all APIs, UI code, infrastructure, DB etc all in one solution.
+    -- Build and deployment in IIS etc
+    -- Once the app grows, slower start up, maintainence is hard, single change is to deploy whole project
+    -- Incremental Change is hard without deploying the whole app.
+
+Microservices
+    --  Services is developed and deployed independently
+    -- small servcies can have separate service, database hooked to a single component UI.
+    -- different projects have differnet solution
+    -- increase separation of concernts
+    -- can develop a microfrontend and integrated into the legacy existing applications easily.
+    -- Services have to interact with each other using events like kafka, mq etc.
+    -- UI services run on one port 1000, backend can run on port 2000 etc. 
+    -- All these can mapped to one domain and have one domain name
+    -- can have routing, load balancer, rate limiter etc
+
+Namasthe-react App we are making is UI microservice using react
+
+Learn how react will call the backend api call or outside UI project.
+
+2 ways to fetch data from backend
+
+1. On App Loads -> invoke the api call to fetch the data -> render on the UI via components.
+    -- if api takes 500 ms, UI waits till the data fetch from UI
+2. On App Loads -> Quickly Render the UI (which is required) -> now API call is made -> rerender/refresh the data.
+
+In React, we will always use the second approach, is like lazy loading the components, gives better user experience.
+
+-- useEffect Hook - to call an API or any side effects -- will be called after component is rendered
+-- able to call swiggy cards data through API and able to pull in coonsole log using useffect
+
 
 

@@ -22,10 +22,6 @@
  *  - contact info
  * 
  */
-
-
-
-
 const AppLayout = () => {
     return <div className="app">
         <Header />
