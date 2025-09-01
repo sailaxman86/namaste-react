@@ -1,4 +1,4 @@
-const restList = [
+const resList = [
     {
         "card": {
             "card": {
@@ -216,7 +216,7 @@ const restList = [
                         "Chinese",
                         "Biryani"
                     ],
-                    "avgRating": 4.1,
+                    "avgRating": 3.1,
                     "veg": true,
                     "parentId": "8784",
                     "avgRatingString": "4.1",
@@ -325,7 +325,7 @@ const restList = [
                     "cuisines": [
                         "Biryani"
                     ],
-                    "avgRating": 4.1,
+                    "avgRating": 2.1,
                     "parentId": "4365",
                     "avgRatingString": "4.1",
                     "totalRatingsString": "405",
@@ -417,7 +417,7 @@ const restList = [
                         "Snacks",
                         "Beverages"
                     ],
-                    "avgRating": 4,
+                    "avgRating": 5,
                     "parentId": "540976",
                     "avgRatingString": "4.0",
                     "totalRatingsString": "13",
@@ -510,7 +510,7 @@ const restList = [
                         "Chinese",
                         "Biryani"
                     ],
-                    "avgRating": 4.3,
+                    "avgRating": 1.3,
                     "parentId": "19495",
                     "avgRatingString": "4.3",
                     "totalRatingsString": "17K+",
@@ -1179,6 +1179,6 @@ const restList = [
             }
         }
     }
-]
+];
 
 export default resList;
