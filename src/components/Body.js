@@ -1,25 +1,4 @@
- import React from "react";
- import ReactDom from "react-dom/client";
- import "./App.css";  
-/**
- * Headers
- *  - Logo
- *  - Nav Items
- * Body
- *  - Search Bar
- *  - Restaurant List
- *  - Restaurant Card
- *   - Image
- *  - Name
- *  - Cusines
- *  - Rating
- * Footer
- *  - copyright
- *  - links
- *  - address
- *  - contact info
- * 
- */
+import RestaurantCard from "./RestaurantCard";
 
 const restList = [
     {
@@ -1204,40 +1183,6 @@ const restList = [
     }
 ]
 
-
-const HeaderComponent = () => {
-    return (
-        <div className="header">
-            <div>
-                <img src="https://marketplace.canva.com/EAGXsRURT9o/1/0/1600w/canva-yellow-and-brown-kitchen-food-logo-JrzZUwc_CLQ.jpg" className="logo" alt="logo" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const RestaurantCard = (props) => {
-    const { resData } = props ; 
-    const {id,name, cuisines, avgRating, deliveryTime, cloudinaryImageId} = resData;
-    const uniqueId = resData.id;
-    return (
-        <div id={uniqueId} className="restaurant-card" style={{backgroundColor: "#ceb2b285"}}>
-            <img className="restaurant-logo" alt="restaurant-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId }/>
-            <h3>{name}</h3>
-            <h4>{cuisines}</h4>
-            <h4>{avgRating}</h4>
-            <h4>{deliveryTime}</h4>
-        </div>
-    )   
-}
-
 //using props now
 const Body = () => {
     console.log();
@@ -1253,12 +1198,4 @@ const Body = () => {
     )
 }
 
-const AppLayout = () => {
-    return <div className="app">
-        <HeaderComponent />
-        <Body />
-    </div>;
-}
-        
-const root = ReactDom.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);
+export default Body;
