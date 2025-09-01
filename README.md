@@ -62,5 +62,7 @@ In React, we will always use the second approach, is like lazy loading the compo
 -- useEffect Hook - to call an API or any side effects -- will be called after component is rendered
 -- able to call swiggy cards data through API and able to pull in coonsole log using useffect
 
+Shimmer UI - show fake page, until you get data from the api showing like loading.
+
 
 
