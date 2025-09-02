@@ -64,5 +64,7 @@ In React, we will always use the second approach, is like lazy loading the compo
 
 Shimmer UI - show fake page, until you get data from the api showing like loading.
 
+When usestate is used, on click, react will rerender the entire component where button is present, but not only button.
+
 
 

@@ -20,18 +20,17 @@ const Body = () => {
         setListofRestaurants(filteredList); 
     };
 
-    if(listOfRestaurants == 0){
-        return <Shimmer />;
-    }
-
-    return (
+    // Conditional Rendering
+    return listOfRestaurants === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
-                    const filteredList = listOfRestaurants.filter(res => res.card.card.info.avgRating >= 4);
+                    const filteredList = listOfRestaurants.filter(restaurant => 
+                        restaurant.card.card.info.avgRating < 3.5
+                    );
                     setListofRestaurants(filteredList);
                 }} >
-                    Top Rated Restaurant
+                    Top Rated Restaurants
                 </button>
             </div>
             <div className="restaurant-list">

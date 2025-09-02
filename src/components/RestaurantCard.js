@@ -8,7 +8,7 @@ const RestaurantCard = (props) => {
         <div id={uniqueId} className="restaurant-card" style={{backgroundColor: "#ceb2b285"}}>
             <img className="restaurant-logo" alt="restaurant-logo" src={CDN_URL+cloudinaryImageId}/>
             <h3>{name}</h3>
-            <h4>{cuisines}</h4>
+            <h4 className="cuisines">{cuisines.join(", ")}</h4>
             <h4>{avgRating}</h4>
             <h4>{deliveryTime}</h4>
         </div>
