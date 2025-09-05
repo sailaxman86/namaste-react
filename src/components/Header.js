@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";       
+import { useEffect, useRef } from "react";
 
 const Header = () => {
     
